@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+
+data = CSV.read('data.csv')
+
+header = data.shift
+descs = {}
+
+data.sort!{|a,b| a[0].downcase <=> b[0].downcase}
+
+data.each do |prod,desc,*others|
+  descs[prod] = desc
+  puts "#{prod}: #{desc} (#{desc.class.name}) #{others.inspect}"
+end
+
+while prod = gets
+  prod.chomp!
+  case prod
+  when /^(.+): (.+)$/
+    prod = $1
+    desc = $2
+    descs[prod] = desc
+    CSV.open("data.csv", "wb") do |csv| #write the file
+      csv << header
+      descs.each_pair do |k,v|
+        csv << [k,v]
+      end
+    end
+    puts "#{prod}: #{desc}"
+  else
+    if prod.length > 0
+      if desc = descs[prod]
+        puts "#{prod}: #{desc}"
+      else
+        p = prod.downcase
+        keys = descs.keys.select do |k| 
+          k.downcase.index(p) == 0 
+        end
+        keys.each do |k|
+          puts "#{k}: #{descs[k]}"
+        end
+      end
+    end
+  end # end case
+end
+

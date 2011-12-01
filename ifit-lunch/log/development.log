@@ -1,0 +1,252 @@
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-10 11:54:40 -0700
+  Processing by MenusController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'menus'):
+  app/controllers/menus_controller.rb:5:in `index'
+
+Rendered /home/rob/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/rob/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+Rendered /home/rob/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.9ms)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (15.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (7.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMenus (20111110185237)
+  [1m[35m (0.9ms)[0m  CREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item" varchar(255), "price" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111110185237')[0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("menus")
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+  Processing by MenusController#index as HTML
+  [1m[36mMenu Load (0.1ms)[0m  [1mSELECT "menus".* FROM "menus" [0m
+Rendered menus/index.html.erb within layouts/application (0.8ms)
+Compiled application.css  (0ms)  (pid 3825)
+Compiled menus.css  (3ms)  (pid 3825)
+Compiled scaffolds.css  (6ms)  (pid 3825)
+Compiled application.js  (2ms)  (pid 3825)
+Compiled jquery.js  (5ms)  (pid 3825)
+Compiled jquery_ujs.js  (0ms)  (pid 3825)
+Compiled menus.js  (151ms)  (pid 3825)
+Completed 200 OK in 211ms (Views: 210.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+Served asset /menus.css - 200 OK (22ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+Served asset /menus.js - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:08 -0700
+Served asset /jquery.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:09 -0700
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/menus/new" for 127.0.0.1 at 2011-11-10 11:55:11 -0700
+  Processing by MenusController#new as HTML
+Rendered menus/_form.html.erb (5.7ms)
+Rendered menus/new.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/menus" for 127.0.0.1 at 2011-11-10 11:55:26 -0700
+  Processing by MenusController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4My1FYj4V6QzJJW9RN8Fs98TsWWiS8y/1NZfiUNDKl8=", "menu"=>{"item"=>"Burger", "price"=>"0.02"}, "commit"=>"Create Menu"}
+  [1m[35mSQL (10.3ms)[0m  INSERT INTO "menus" ("created_at", "item", "price", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Thu, 10 Nov 2011 18:55:26 UTC +00:00], ["item", "Burger"], ["price", 0.02], ["updated_at", Thu, 10 Nov 2011 18:55:26 UTC +00:00]]
+Redirected to http://localhost:3000/menus/1
+Completed 302 Found in 28ms
+
+
+Started GET "/menus/1" for 127.0.0.1 at 2011-11-10 11:55:26 -0700
+  Processing by MenusController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMenu Load (0.1ms)[0m  [1mSELECT "menus".* FROM "menus" WHERE "menus"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Rendered menus/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:27 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:27 -0700
+Served asset /menus.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:27 -0700
+Served asset /menus.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:27 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:27 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/menus" for 127.0.0.1 at 2011-11-10 11:55:30 -0700
+  Processing by MenusController#index as HTML
+  [1m[35mMenu Load (0.1ms)[0m  SELECT "menus".* FROM "menus" 
+Rendered menus/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:30 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:30 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:30 -0700
+Served asset /menus.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:30 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:30 -0700
+Served asset /menus.css - 304 Not Modified (0ms)
+
+
+Started GET "/menus/new" for 127.0.0.1 at 2011-11-10 11:55:32 -0700
+  Processing by MenusController#new as HTML
+Rendered menus/_form.html.erb (24.5ms)
+Rendered menus/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:32 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:32 -0700
+Served asset /menus.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:32 -0700
+Served asset /menus.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:32 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:32 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started POST "/menus" for 127.0.0.1 at 2011-11-10 11:55:48 -0700
+  Processing by MenusController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4My1FYj4V6QzJJW9RN8Fs98TsWWiS8y/1NZfiUNDKl8=", "menu"=>{"item"=>"Burger With BACON", "price"=>"0.03"}, "commit"=>"Create Menu"}
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "menus" ("created_at", "item", "price", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Thu, 10 Nov 2011 18:55:48 UTC +00:00], ["item", "Burger With BACON"], ["price", 0.03], ["updated_at", Thu, 10 Nov 2011 18:55:48 UTC +00:00]]
+Redirected to http://localhost:3000/menus/2
+Completed 302 Found in 20ms
+
+
+Started GET "/menus/2" for 127.0.0.1 at 2011-11-10 11:55:48 -0700
+  Processing by MenusController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mMenu Load (0.1ms)[0m  SELECT "menus".* FROM "menus" WHERE "menus"."id" = ? LIMIT 1  [["id", "2"]]
+Rendered menus/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:49 -0700
+Served asset /menus.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:49 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:49 -0700
+Served asset /menus.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:49 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:49 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/menus" for 127.0.0.1 at 2011-11-10 11:55:53 -0700
+  Processing by MenusController#index as HTML
+  [1m[36mMenu Load (0.1ms)[0m  [1mSELECT "menus".* FROM "menus" [0m
+Rendered menus/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:53 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:53 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:53 -0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:55:53 -0700
+Served asset /menus.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:55:53 -0700
+Served asset /menus.css - 304 Not Modified (0ms)
+
+
+Started GET "/menus" for 127.0.0.1 at 2011-11-10 11:58:05 -0700
+  Processing by MenusController#index as HTML
+  [1m[36mMenu Load (0.1ms)[0m  [1mSELECT "menus".* FROM "menus" [0m
+Rendered menus/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 58ms (Views: 57.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-11-10 11:58:06 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-11-10 11:58:06 -0700
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/menus.css?body=1" for 127.0.0.1 at 2011-11-10 11:58:06 -0700
+Served asset /menus.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/menus.js?body=1" for 127.0.0.1 at 2011-11-10 11:58:06 -0700
+Served asset /menus.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-11-10 11:58:06 -0700
+Served asset /application.js - 304 Not Modified (0ms)
